@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>Student Login</title>
+		<style>
+			body
+            {
+	            background-color: #F0F0F0;
+	            font-family: 'Gill Sans', 'Gill Sans MT',' Calibri', 'Trebuchet MS', 'sans-serif';
+				color:#003366;
+            }
+            label
+            {
+	            font-size:250%;
+                color:#003366;
+            }
+        	input,select
+            {
+                width:200%;
+				height:30px;
+                padding:1%;
+                font-size:120%;
+                font-family: 'Arial','sans-serif';
+                color:#003366;
+            }
+            div
+            {
+	            margin:10% 15% 10% 35%;
+            }
+            header
+            {
+	            background-color:#003366;
+	            color: #F0F0F0;
+				padding:4%;
+				height:10px;
+				text-align:center;
+	            font-size:40px;
+	            font-weight:bold;
+            }
+						.sms
+						{
+							padding:15px 25px;
+							font-size:large;
+							border-radius:10%;
+							background-color: #00A86B;
+							color: #ffffff;
+							cursor: pointer;
+							box-shadow: 0 9px #999;
+							text-align: center;
+							margin:2%;
+						}
+						.sms:hover
+						{
+							background-color: #008B5E;
+							color:#ffffff;
+						}
+						.sms:active
+						{
+							background-color: #008B5E;
+							color: #ffffff;
+							box-shadow: 0 5px black;
+							transform: translateY(4px);
+						}
+						div.buttons
+						{
+							display:inline-flex;
+							justify-content:center;
+							gap:0;
+						}
+        </style>
+	</head>
+	<body>
+		<header>
+			<script>
+				const urlParams = new URLSearchParams(window.location.search);
+				const nameValue = urlParams.get('name');
+				document.write(nameValue);
+				function setInputValue()
+				{
+					document.getElementById('name').value=nameValue;
+				}
+				window.onload=setInputValue;
+			</script>
+		</header>
+		<div class="parts">
+			<form action="Add Student.php" method="post">
+				<input type="hidden" id="name" name="name" >
+				<table>
+					<h1>Create student login only here:</h1>
+					<tr>
+						<td><label for="pinno" ><b>Username</b></label></td>
+						<td><input type="name" placeholder="Enter Username"name="username" required><br></td>
+					</tr>
+					<tr>
+						<td><label for="pinno" ><b>Password</b></label></td>
+						<td><input type="password" placeholder="Enter Password" name="password" required></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<div class="buttons">
+								<button type="button" class="sms" onclick="function1()">Home</button>
+								<button type="submit" class="sms">Submit</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script>
+			function function1()
+			{
+			var url="Admin Login1.html";
+			window.location.href=url+"?name="+encodeURIComponent(nameValue);
+			}
+		</script>
+	</body>
+</html>		

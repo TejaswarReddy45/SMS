@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter or Update Attendance</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Added for positioning the back button */
+        }
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 10px; /* Adjusted for better alignment */
+            left: 10px; /* Adjusted for better alignment */
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: #4CAF50;
+            cursor: pointer;
+        }
+        /* Container styling */
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added to position the button inside the container */
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        /* Table styling */
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .form-table td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+        .form-table td:first-child {
+            text-align: right;
+            font-weight: bold;
+            color: #555;
+            width: 40%;
+        }
+        /* Input and select styling */
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        /* Submit button styling */
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <button class="back-button" onclick="javascript:history.back()">X</button>
+        <h2>Enter or Update Monthly Attendance</h2>
+        <!-- Form to collect attendance data -->
+        <form method="post" action="attendance.php">
+            <table class="form-table">
+                <tr>
+                    <td><label for="student_id">Student ID:</label></td>
+                    <td><input type="text" id="student_id" name="student_id" pattern="\d{2}\d{3}-(CM|EC|ME|EE)-\d{3}" title="Format: yyccc-branchcode-ddd (e.g., 22352-CM-045)" required></td>
+                </tr>
+                <tr>
+                    <td><label for="branch">Branch:</label></td>
+                    <td>
+                        <select id="branch" name="branch" required>
+                            <option value="CME">CME</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="MECH">MECH</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="semester">Semester:</label></td>
+                    <td>
+                        <select id="semester" name="semester" required>
+                            <option value="1">I</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                            <option value="5">V</option>
+                            <option value="6">VI</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="month">Month:</label></td>
+                    <td>
+                        <select id="month" name="month" required>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="year">Year:</label></td>
+                    <td><input type="number" id="year" name="year" value="2024" required></td>
+                </tr>
+                <tr>
+                    <td><label for="working_days">Working Days:</label></td>
+                    <td><input type="number" id="working_days" name="working_days" required></td>
+                </tr>
+                <tr>
+                    <td><label for="present_days">Present Days:</label></td>
+                    <td><input type="number" id="present_days" name="present_days" required></td>
+                </tr>
+                <tr>
+                    <td><label for="absent_days">Absent Days:</label></td>
+                    <td><input type="number" id="absent_days" name="absent_days" required></td>
+                </tr>
+                <tr>
+                    <td><label for="notes">Notes:</label></td>
+                    <td><textarea id="notes" name="notes" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

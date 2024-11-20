@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>Student Management System</title>
+		<style>
+			body
+            {
+	            background-color: #F0F0F0;
+                color:#003366;
+	            font-family: arial,sans-serif;
+            }
+            label
+            {
+	            font-size:250%;
+                color:#003366;
+            }
+            select
+            {
+                width:40%;
+                padding:1%;
+                font-size:150%;
+                font-family: arial,sans-serif;
+                color:#003366;
+            }
+            option
+            {
+                font-weight:bold;
+	            padding:8px;
+	            width:20%;
+            }
+            div
+            {
+	            margin:10% 15% 10% 25%;
+            }
+            header
+            {
+	            background-color:#003366;
+                color:#ffffff;
+	            padding:1px;
+	            font-size:40px;
+	            font-weight:bold;
+                width:105;
+            }
+            #sms
+            {
+	            padding:15px 25px;
+	            font-size:large;
+	            border-radius:10%;
+	            background-color: #00A86B;
+	            color: #ffffff;
+                cursor: pointer;
+                box-shadow: 0 9px #999;
+	            text-align: center;
+                margin:5% 40% 9% 40%;
+            }
+            #sms:hover
+            {
+	            background-color: #008B5E;
+	            color:#ffffff;
+            }
+            #sms:active
+            {
+	            background-color: #008B5E;
+	            color: #ffffff;
+	            box-shadow: 0 5px black;
+	            transform: translateY(4px);
+            }
+
+
+        /* Help Icon Style */
+        .help-icon {
+            margin-left: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff6347; /* Initial Tomato color */
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            animation: colorChange 4s infinite linear; /* Continuous color change */
+            transition: background-color 0.3s ease-in-out; /* Smooth stop on hover */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stop animation on hover */
+        .help-icon:hover {
+            animation-play-state: paused; /* Stops the color change */
+            transform: scale(1.1); /* Slight enlargement on hover */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Keyframes for continuous color change */
+        @keyframes colorChange {
+            0% { background-color: #1e90ff; }   /* DodgerBlue */
+            25% { background-color: #32cd32; }  /* LimeGreen */
+            50% { background-color: #ff6347; }  /* Tomato */
+            100% { background-color: #1e90ff; } /* Loop back to DodgerBlue */
+        }
+        </style>
+	</head>
+	<body>
+	<header>
+		<p align="center">Student Management System</p>
+            <a href="help.html"><sub class="help-icon">?</sub></a>
+            <sub class="help-tooltip" style="font-size:60%;margin-left: 2%;">help</sub>
+    </header>
+    <div class="parts">
+		<label for="select"><b>Select the Institution :</b></label>
+        <select name="select" id="select" required>
+            <option value="abc" selected>Select the Institution</option>
+            <option value="ABC.html">ABC Institution</option>
+            <option value="DEF.html">DEF Institution</option>
+            <option value="GHI.html">GHI Institution</option>
+            <option value="JKL.html">JKL Institution</option>
+        </select>
+        <button type="submit" id="sms"><b>submit</b></button>
+    </div>
+	<script>
+        document.getElementById("sms").addEventListener("click",function()
+        {
+            var select=document.getElementById("select");
+            url=select.value;
+            if(url=="abc")
+            {
+                alert("Select the Institution ")
+                window.location.href="Select Page.html";
+            }
+            else
+            {
+                window.location.href=url;
+            }
+        });
+    </script>
+	</body>
+</html>

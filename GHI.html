@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Student Management System</title>
+        <style>
+            body {
+                background-color: #F0F0F0;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+h2,h3
+{
+color:#003366;
+}
+            header {
+                background-color: #003366;
+                color: #ffffff;
+                padding: 1px;
+                height:10px;
+                height: 120px;
+                font-size: 30px;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 30px;
+                height:140px;
+            }
+            /* The menu button (hamburger icon) */
+            .menu-btn {
+                font-size: 30px;
+                cursor: pointer;
+                background-color: #003366;
+                color: #FFD700;
+                border: none;
+                display: inline-block;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #003366;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                z-index: 1;
+            }
+            .sidenav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .sidenav li {
+                padding: 16px;
+                text-decoration: none;
+                color: #FFD700;
+                display: block;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .sidenav li:hover {
+                background-color: #575757;
+                color: white;
+            }
+            .closebtn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 36px;
+                margin: 15px;
+                cursor: pointer;
+                color: #ffffff;
+            }
+            .dropdown-content {
+                display: none;
+                position: relative;
+                background-color: #575757;
+                min-width: 100%;
+                box-shadow: none;
+            }
+            .dropdown-content li {
+                padding: 12px;
+                color: #FFD700;
+                display: block;
+            }
+            .dropdown-content li:hover {
+                background-color: #404040;
+                color: white;
+            }
+            .show {
+                display: block;
+            }
+            footer {
+                background-color: #003366;
+                color: #ffffff;
+                padding: 15px;
+                font-size: 18px;
+                bottom: 0;   
+            }
+            #sms
+            {
+	            padding:10px 40px;
+	            font-size:small;
+	            border-radius:10%;
+                background-color: #00A86B;
+	            color: #ffffff;
+                cursor: pointer;
+                box-shadow: 0 9px #999;
+	            text-align: center;
+                margin-left:45%;
+                margin-right:40%;
+            }
+            #sms:hover
+            {
+                background-color: #008B5E;
+	            color:#ffffff;
+            }
+            #sms:active
+            {
+	            background-color: #008B5E;
+	            color: #ffffff;
+	            box-shadow: 0 5px black;
+	            transform: translateY(4px);
+            }
+            div.buttons
+			{
+				display:inline-flex;
+                flex-wrap:wrap;
+				justify-content:flex-start;
+				gap:0;
+			}
+        </style>
+    </head>
+    <body>
+        <header>
+            <p>GHI Institution of Engineering and Technology</p>
+            <!-- Menu button (hamburger icon) -->
+            
+            <table>
+                <tr>
+                    <td colspan="2" >
+                        <div class="buttons">
+                            <button class="menu-btn" style="float:left" onclick="openNav()">☰ Menu</button>
+                            <a href="Select Page.html"><button type="submit" id="sms" class="menu-btn" style="margin-left:800%"><b>Select Page</b></button></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>        
+        </header>
+        
+        <!-- Side navigation -->
+        <div id="mySidenav" class="sidenav">
+            <span class="closebtn" onclick="closeNav()">×</span>
+            <ul id="nav" class="nav">
+                <li id="home" onclick="function1()"><b>Home</b></li>
+                <li id="student_details" onclick="toggleDropdown('myDropdown');"><b>Student Details</b></li>
+                <ul id="myDropdown" class="dropdown-content">
+                    <li id="student_login" onclick="function3()">Student Login</li>
+                    <li id="admin_login" onclick="function4()">Admin Login</li>
+                </ul>
+                <li id="marks" onclick="toggleDropdown('Dropdown');"><b>Marks</b></li>
+                <ul id="Dropdown" class="dropdown-content">
+                    <li id="student_login" onclick="function6()">Marks Insert</li>
+                    <li id="admin_login" onclick="function7()">Marks View</li>
+                </ul>
+                <li id="marks" onclick="toggleDropdown('Drop');"><b>Attendance</b></li>
+                <ul id="Drop" class="dropdown-content">
+                    <li id="student_login" onclick="function8()">Attendance Insert</li>
+                    <li id="admin_login" onclick="function9()">Attendance View</li>
+                </ul>
+                <li id="create_new_login" onclick="function5()"><b>Create New Login</b></li>
+            </ul>
+        </div>
+<img src="https://www.successcds.net/images/iit-guwahati-college.png" style="margin-left: 25%" alt="KRISHNA COLLEGE" height=0.5% width=50%>
+    <h2 align="center" >About College</h2>
+    <p style="font-family: bookman old style;">
+        Raghava College offers a comprehensive diploma program designed to equip students with practical skills and theoretical knowledge in their chosen field. The college emphasizes a holistic approach to education, blending rigorous academic instruction with hands-on experience. Students benefit from a state-of-the-art campus, featuring modern facilities and resources that support both learning and personal growth. The diploma programs cover a range of disciplines, including business, technology, and the arts, each structured to address current industry demands and trends. Experienced faculty members, who bring real-world expertise into the classroom, guide students through a curriculum that fosters critical thinking, problem-solving, and professional development. Additionally, Raghava College provides ample opportunities for internships and industry collaborations, ensuring that graduates are well-prepared for the workforce and equipped with the skills necessary to excel in their careers.
+    </p>
+
+    <h2><b>Courses Offered</b></h2>
+    <ul>
+        <li>1.Computer Science</li>
+        <li>2.Electronics</li>
+        <li>3.Electricals</li>
+        <li>4.Civil</li>
+    </ul>
+    <h2>Department of Computer Science</h2>
+    <p style="font-family: bookman old style;">
+        To educate the young minds with the ability to manage real-world problems using the latest technology, to inculcate professional behaviors, strong ethical values, innovative research capability, and leadership ability. Help the students explore the depths of computer science, exalt in them, and at the same time, join hands with other branches of science to turn something virtual into real and vice versa.
+    </p>
+<h2>Department of Electronics</h2>
+    <p style="font-family: bookman old style;">
+        To educate the young minds with the ability to manage real-world problems using the latest technology, to inculcate professional behaviors, strong ethical values, innovative research capability, and leadership ability. Help the students explore the depths of electronics, exalt in them, and at the same time, join hands with other branches of science to turn something virtual into real and vice versa.
+</p>
+<h2>Department of Electricals</h2>
+    <p style="font-family: bookman old style;">
+        To educate the young minds with the ability to manage real-world problems using the latest technology, to inculcate professional behaviors, strong ethical values, innovative research capability, and leadership ability. Help the students explore the depths of electricals, exalt in them, and at the same time, join hands with other branches of science to turn something virtual into real and vice versa.
+</p>
+<h2>Department of  Mechanical</h2>
+    <p style="font-family: bookman old style">
+        To educate the young minds with the ability to manage real-world problems using the latest technology, to inculcate professional behaviors, strong ethical values, innovative research capability, and leadership ability. Help the students explore the depths of mechanical, exalt in them, and at the same time, join hands with other branches of science to turn something virtual into real and vice versa.
+</p>
+<h3>
+    <h3>Contact Information</h3>
+    <p>Phone Number: 0123456789</p>
+    <p>Email: krns@gmail.com</p>
+        <a href="Select Page.html"><button type="submit" id="sms"><b>Go to <br> Select Page</b></button></a>
+
+        <script>
+            /* Open the sidenav */
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+            /* Close/hide the sidenav */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            function toggleDropdown(id) {
+                const dropdown = document.getElementById(id);
+                dropdown.classList.toggle('show');
+            }
+            function function1() {
+                window.location.href = "GHI.html";
+            }
+            function function3() {
+                window.location.href = "Student Login.html?name=GHI Institution of Engineering and Technology";
+            }
+            function function4() {
+                window.location.href = "Admin Login.html?name=GHI Institution of Engineering and Technology";
+            }
+            function function5() {
+                window.location.href = "Admin Login1.html?name=GHI Institution of Engineering and Technology";
+            }
+            function function6() {
+                window.location.href = "Admin Login2.html?name=GHI Institution of Engineering and Technology";
+            }
+            function function7() {
+                window.location.href = "hlo.html?name=GHI Institution of Engineering and Technology";
+            }
+            function function8() {
+                window.location.href = "Admin Login3.html?name=ABC Institution of Engineering and Technology";
+            }
+            function function9() {
+                window.location.href = "yesu.html?name=ABC Institution of Engineering and Technology";
+            }
+            /* Ensure submenus open and close without creating extra space */
+            window.onclick = function(event) {
+                const dropdowns = document.querySelectorAll('.dropdown-content.show');
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(event.target) && !event.target.closest('li')) {
+                        dropdown.classList.remove('show');
+                    }
+                });
+            };
+        </script>
+    </body>
+</html>

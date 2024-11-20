@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styling */
+        .attendance-table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .attendance-table th, .attendance-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        .attendance-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .attendance-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .attendance-table tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Back button styling */
+        .back-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .back-button a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Retrieve Attendance</h2>
+    <form method="post" action="retrieve_attendance.php">
+        <label for="student_id">Student ID (format: yyccc-branchcode-ddd):</label>
+        <input type="text" id="student_id" name="student_id" 
+               pattern="\d{2}\d{3}-(CM|EC|ME|EE)-\d{3}" 
+               title="Format should be yyccc-branchcode-ddd, e.g., 22352-CM-045" 
+               required>
+        
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester" required>
+            <option value="1">I</option>
+            <option value="3">III</option>
+            <option value="4">IV</option>
+            <option value="5">V</option>
+            <option value="6">VI</option>
+        </select>
+
+        <input type="submit" value="Retrieve Attendance">
+    </form>
+
+    <div class="back-button">
+        <a href="javascript:history.back()">Back</a>
+    </div>
+</body>
+</html>
